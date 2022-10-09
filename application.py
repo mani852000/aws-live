@@ -4,7 +4,7 @@ import os
 import boto3
 from config import *
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 bucket = custombucket
 region = customregion
@@ -21,17 +21,17 @@ output = {}
 table = 'employee'
 
 
-@app.route("/", methods=['GET', 'POST'])
+@application.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('AddEmp.html')
 
 
-@app.route("/about", methods=['POST'])
+@application.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
 
-@app.route("/addemp", methods=['POST'])
+@application.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
